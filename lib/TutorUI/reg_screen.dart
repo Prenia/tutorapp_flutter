@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+
 class RScreen extends StatefulWidget {
   const RScreen({Key? key}) : super(key: key);
 
@@ -21,16 +22,19 @@ class _RScreenState extends State<RScreen> {
   Widget build(BuildContext context) {
     final User? user = _auth.currentUser;
     final uid = user?.uid;
-    CollectionReference TutorUser = FirebaseFirestore.instance.collection('TutorUser');
+    CollectionReference TutorUser =
+        FirebaseFirestore.instance.collection('TutorUser');
 
     Future<void> addTutorUser() {
-      return TutorUser.doc(_auth.currentUser?.uid).set({
-      'email' : email,
-        'name': name,
-      'mobilenumber' : mobilenumber,
-      'description' : description
-      })
-      .then((value) => print('User added')).catchError((error) => print('Failed to add user: $error'));
+      return TutorUser.doc(_auth.currentUser?.uid)
+          .set({
+            'email': email,
+            'name': name,
+            'mobilenumber': mobilenumber,
+            'description': description
+          })
+          .then((value) => print('User added'))
+          .catchError((error) => print('Failed to add user: $error'));
     }
 
     return Scaffold(
@@ -61,16 +65,18 @@ class _RScreenState extends State<RScreen> {
               decoration: const InputDecoration(
                 hintText: 'Enter your name',
                 contentPadding:
-                EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                    EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(32.0)),
                 ),
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.orangeAccent, width: 3.0),
+                  borderSide:
+                      BorderSide(color: Colors.orangeAccent, width: 3.0),
                   borderRadius: BorderRadius.all(Radius.circular(32.0)),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.orangeAccent, width: 2.0),
+                  borderSide:
+                      BorderSide(color: Colors.orangeAccent, width: 2.0),
                   borderRadius: BorderRadius.all(Radius.circular(32.0)),
                 ),
               ),
@@ -87,16 +93,18 @@ class _RScreenState extends State<RScreen> {
               decoration: const InputDecoration(
                 hintText: 'Enter your email',
                 contentPadding:
-                EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                    EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(32.0)),
                 ),
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.orangeAccent, width: 3.0),
+                  borderSide:
+                      BorderSide(color: Colors.orangeAccent, width: 3.0),
                   borderRadius: BorderRadius.all(Radius.circular(32.0)),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.orangeAccent, width: 2.0),
+                  borderSide:
+                      BorderSide(color: Colors.orangeAccent, width: 2.0),
                   borderRadius: BorderRadius.all(Radius.circular(32.0)),
                 ),
               ),
@@ -114,16 +122,18 @@ class _RScreenState extends State<RScreen> {
               decoration: const InputDecoration(
                 hintText: 'Enter your password',
                 contentPadding:
-                EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                    EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(32.0)),
                 ),
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.orangeAccent, width: 3.0),
+                  borderSide:
+                      BorderSide(color: Colors.orangeAccent, width: 3.0),
                   borderRadius: BorderRadius.all(Radius.circular(32.0)),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.orangeAccent, width: 2.0),
+                  borderSide:
+                      BorderSide(color: Colors.orangeAccent, width: 2.0),
                   borderRadius: BorderRadius.all(Radius.circular(32.0)),
                 ),
               ),
@@ -140,16 +150,18 @@ class _RScreenState extends State<RScreen> {
               decoration: const InputDecoration(
                 hintText: 'Enter your mobile number',
                 contentPadding:
-                EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                    EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(32.0)),
                 ),
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.orangeAccent, width: 3.0),
+                  borderSide:
+                      BorderSide(color: Colors.orangeAccent, width: 3.0),
                   borderRadius: BorderRadius.all(Radius.circular(32.0)),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.orangeAccent, width: 2.0),
+                  borderSide:
+                      BorderSide(color: Colors.orangeAccent, width: 2.0),
                   borderRadius: BorderRadius.all(Radius.circular(32.0)),
                 ),
               ),
@@ -166,16 +178,18 @@ class _RScreenState extends State<RScreen> {
               decoration: const InputDecoration(
                 hintText: 'About you',
                 contentPadding:
-                EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                    EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(32.0)),
                 ),
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.orangeAccent, width: 3.0),
+                  borderSide:
+                      BorderSide(color: Colors.orangeAccent, width: 3.0),
                   borderRadius: BorderRadius.all(Radius.circular(32.0)),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.orangeAccent, width: 2.0),
+                  borderSide:
+                      BorderSide(color: Colors.orangeAccent, width: 2.0),
                   borderRadius: BorderRadius.all(Radius.circular(32.0)),
                 ),
               ),
@@ -192,14 +206,14 @@ class _RScreenState extends State<RScreen> {
                 child: MaterialButton(
                   onPressed: () async {
                     try {
-                      final newUser = await _auth
-                          .createUserWithEmailAndPassword(
-                          email: email, password: password);
-                      if(newUser != null){
+                      final newUser =
+                          await _auth.createUserWithEmailAndPassword(
+                              email: email, password: password);
+                      if (newUser != null) {
                         addTutorUser();
-                        Navigator.pushNamed(context, '/home');
+                        Navigator.pushNamed(context, '/tutorhome');
                       }
-                    } catch(e){
+                    } catch (e) {
                       print(e);
                     }
                   },
